@@ -12,7 +12,6 @@ pnpm-debug.log*
 coverage/
 # 忽略所有图片
 *.png
-*.jpg
 *.jpeg
 
 # 忽略所有Markdown文档
