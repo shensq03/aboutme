@@ -64,11 +64,12 @@ describe("site pages", () => {
     expect(screen.getByText("项目简介")).toBeInTheDocument();
     expect(screen.getByText("我的角色")).toBeInTheDocument();
     expect(screen.getByText("项目图片")).toBeInTheDocument();
-    expect(screen.getAllByText("UI 截图待补充").length).toBeGreaterThan(0);
+    expect(screen.getByRole("img", { name: "Tripkin 作品图" }).getAttribute("src")).toContain("tripkin.png");
     fireEvent.click(screen.getByRole("button", { name: /纹载山河/ }));
     expect(screen.getAllByText("纹载山河").length).toBeGreaterThan(0);
     expect(screen.getByRole("heading", { name: "纹载山河" })).toBeInTheDocument();
     expect(screen.getByText("数字文旅 / 非遗叙事")).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "纹载山河作品图" }).getAttribute("src")).toContain("wen-zai-shan-he.png");
 
     cleanup();
     render(<ResearchPage />);

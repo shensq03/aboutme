@@ -16,6 +16,11 @@ describe("profile content model", () => {
       "vibe-workflow",
       "怀化溆浦乡村振兴平台"
     ]);
+    expect(projects.every((project) => project.images.length > 0)).toBe(true);
+    expect(projects.find((project) => project.slug === "mealmuse")?.images[0]).toMatchObject({
+      src: "/project-images/mealmuse.png",
+      alt: "今天吃什么 MealMuse 作品图"
+    });
     expect(projectCategories).toEqual(["AI 产品", "人与连接", "文化与场域", "工具与工程"]);
   });
 

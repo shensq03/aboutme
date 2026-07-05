@@ -37,6 +37,7 @@ export type Project = {
   roleDetail: string;
   tags: string[];
   features: string[];
+  images: { src: string; alt: string }[];
   reflection: string;
   palette: "blue" | "green" | "orange" | "mint";
 };
@@ -94,6 +95,7 @@ export const projects: Project[] = [
     roleDetail: "项目发起人 & 核心开发，产品定义、移动端交互、视觉体系、AI能力接入",
     tags: ["大模型应用", "表达转换", "移动端", "语气仪表盘", "关系沟通"],
     features: ["场景识别", "表达风格", "语气调节", "多版本输出", "结果对比", "输入法扩展"],
+    images: [{ src: "/project-images/zuiti.png", alt: "话到嘴边作品图" }],
     reflection: "表达辅助不是替用户说话，而是帮用户在复杂关系里保留清晰、边界和行动可能。",
     palette: "green"
   },
@@ -115,6 +117,7 @@ export const projects: Project[] = [
     roleDetail: "产品负责人 & 全栈开发，需求调研、产品设计、算法集成、前后端开发",
     tags: ["AI 产品", "旅行规划", "地图路线", "移动端", "多人协作"],
     features: ["智能行程生成", "个性化推荐", "地图路线规划", "预算与花费追踪", "多人协作", "图文记录&回忆册"],
+    images: [{ src: "/project-images/tripkin.png", alt: "Tripkin 作品图" }],
     reflection: "Tripkin 的核心不是生成更多路线，而是把灵感、计划、协作和回忆串成一个更轻的旅行系统。",
     palette: "blue"
   },
@@ -139,6 +142,7 @@ export const projects: Project[] = [
       "负责 AI 竞品调研、用户场景分析、推荐逻辑、单人与多人流程设计、页面交互、视觉迭代和 AI 辅助开发。",
     tags: ["AI 决策", "用户洞察", "全栈开发", "多人偏好", "推荐解释"],
     features: ["单人三问", "主推荐与备选", "多人偏好收集", "吃饭盲盒", "反向推荐", "历史偏好"],
+    images: [{ src: "/project-images/mealmuse.png", alt: "今天吃什么 MealMuse 作品图" }],
     reflection: "真正的推荐不是给更多选项，而是把一个模糊问题转化为用户能立即执行的决定。",
     palette: "orange"
   },
@@ -163,6 +167,7 @@ export const projects: Project[] = [
       "参与文化与生态调研，负责技术方案、网站和小程序功能实现、模块整合与开发协调。",
     tags: ["跨界创作", "生成式 AI", "文旅产品", "数字叙事", "小程序"],
     features: ["生态纹样", "个性路线", "生成式创作", "丝路植物宝宝", "文化地图", "旅游服务"],
+    images: [{ src: "/project-images/wen-zai-shan-he.png", alt: "纹载山河作品图" }],
     reflection: "技术承载文化记忆时，需要让用户从观看者变成参与者，让传统在互动里重新生长。",
     palette: "green"
   },
@@ -187,6 +192,7 @@ export const projects: Project[] = [
       "独立完成需求定义、MCP 调研、系统架构、TypeScript 开发、测试、文档、npm 封装和开源发布。",
     tags: ["MCP", "TypeScript", "npm", "AI 编程", "工作流"],
     features: ["模板管理", "动态参数", "工作流调用", "一键安装", "配置复用", "文档化沉淀"],
+    images: [{ src: "/project-images/vibe-workflow.png", alt: "vibe-workflow 作品图" }],
     reflection: "AI 编程能力的增长不只来自模型，也来自把成功协作路径变成可以被再次调用的系统。",
     palette: "mint"
   },
@@ -211,6 +217,7 @@ export const projects: Project[] = [
       "负责前端页面架构、组件开发、交互实现、前后端接口联调、页面适配、功能测试和部署推进。",
     tags: ["Vue", "Spring Boot", "RESTful API", "内容管理", "实际部署"],
     features: ["成果展示", "动态管理", "信息交互", "AI 服务", "接口联调", "部署上线"],
+    images: [{ src: "/project-images/xupu-platform.png", alt: "怀化溆浦乡村振兴平台作品图" }],
     reflection: "工程在真实场域中的价值，是把阶段性实践转化为一个能够持续被维护和访问的公共入口。",
     palette: "orange"
   }

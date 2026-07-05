@@ -2,9 +2,9 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight, Maximize2, X } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import { defaultProjectSlug, projects, tripkinFeatureIcons, type Project } from "@/data/profile";
-import { PhoneMock } from "@/components/PhoneMock";
 
 function ProjectDetail({ project, openModal }: { project: Project; openModal: (index: number) => void }) {
   return (
@@ -56,13 +56,23 @@ function ProjectDetail({ project, openModal }: { project: Project; openModal: (i
         </div>
         <section>
           <h3 className="mb-2 text-base font-semibold text-[#101942]">项目图片</h3>
-          <div className="mb-3 rounded-2xl border border-dashed border-[#ead9a8] bg-[#fff9e8] p-3 text-sm leading-6 text-[#6a5b2f]">
-            后续上传真实项目截图后，这里会替换为图片展示。
-          </div>
           <div className="flex snap-x gap-4 overflow-x-auto pb-3">
-            {[0, 1, 2].map((index) => (
-              <button key={index} type="button" className="relative snap-center text-left" onClick={() => openModal(index)}>
-                <PhoneMock project={project} index={index} />
+            {project.images.map((image, index) => (
+              <button
+                key={image.src}
+                type="button"
+                className="group relative w-full min-w-[250px] snap-center overflow-hidden rounded-2xl border border-stroke bg-[#f8f6f3] p-2 shadow-soft"
+                onClick={() => openModal(index)}
+              >
+                <span className="relative block h-[330px] w-full">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(min-width: 1024px) 280px, 80vw"
+                    className="rounded-xl object-contain transition duration-300 group-hover:scale-[1.015]"
+                  />
+                </span>
                 <span className="absolute right-3 top-3 rounded-full bg-white/90 p-2 text-blue shadow-soft">
                   <Maximize2 size={14} />
                 </span>
@@ -135,8 +145,20 @@ export function ProjectExplorer() {
             <button className="absolute right-6 top-6 rounded-full bg-white p-3 text-[#101942] shadow-soft" onClick={() => setModalIndex(null)}>
               <X size={18} />
             </button>
-            <motion.div initial={{ scale: 0.96 }} animate={{ scale: 1.05 }} exit={{ scale: 0.96 }} onClick={(event) => event.stopPropagation()}>
-              <PhoneMock project={activeProject} index={modalIndex} />
+            <motion.div
+              className="relative h-[80vh] w-[88vw] max-w-[1120px] overflow-hidden rounded-3xl border border-white/70 bg-white p-3 shadow-soft"
+              initial={{ scale: 0.96 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.96 }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <Image
+                src={activeProject.images[modalIndex]?.src ?? activeProject.images[0]?.src ?? "/project-images/tripkin.png"}
+                alt={activeProject.images[modalIndex]?.alt ?? activeProject.title}
+                fill
+                sizes="88vw"
+                className="p-3 object-contain"
+              />
             </motion.div>
           </motion.div>
         ) : null}
